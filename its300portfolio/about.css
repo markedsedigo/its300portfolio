@@ -1,0 +1,221 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.grid-container { 
+  display: grid; 
+  grid-template-columns: repeat(12, 1fr); 
+  margin-top: 3vh; 
+  min-height: 95vh;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #67d9ff, #084255);
+
+}
+
+
+.navbar {
+  grid-column: 1 / -1; 
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+padding: 10px 25px;
+  z-index: 1000;
+}
+
+#logo {
+  margin-right: auto;
+ font-family: "Luckiest Guy", cursive;
+
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: #7B9587;
+  color: rgb(18, 18, 18);
+  padding: 10px 20px;
+  -webkit-text-stroke: 1px  rgb(4, 255, 251);
+  transition: 0.3s ease;
+}
+#logo:hover {
+  background-color: #4a5e42;
+  transform: translateX(5px);
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  background: rgb(245, 238, 238);
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.nav-links a {
+  font-family: Georgia, 'Times New Roman', serif;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bfff;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #00bfff;
+  transition: width 0.3s;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+#menu {
+  display: none;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+}
+
+
+#menu-toggle {
+  display: none;
+}
+
+
+.image-section {
+  grid-column: 2 / 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.image-section img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+
+.text-section {
+  grid-column: 7 / 12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+}
+
+.text-section h1 {
+  font-family:'joti one' ;
+  font-style: bold ;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.text-section p {
+  font-family: 'Times New Roman', serif;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-shadow: 2px 2px 2px rgba(3, 3, 3, 0.8);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+
+@media (max-width: 992px) {
+  .image-section {
+    grid-column: 2 / 12;
+    padding-top: 100px;
+  }
+
+  .text-section {
+    grid-column: 2 / 12;
+    text-align: center;
+  }
+
+  .image-section img {
+    max-width: 300px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 25px;
+    flex-direction: column;
+    background: rgba(84, 107, 74, 0.95);
+    display: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    width: 200px;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .image-section {
+    grid-column: 1 / -1;
+  }
+
+  .text-section {
+    grid-column: 1 / -1;
+  }
+
+  .image-section img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 450px) {
+  #logo {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+  }
+
+  .text-section h1 {
+    font-size: 1.4rem;
+  }
+
+  .image-section img {
+    max-width: 180px;
+  }
+
+  .nav-links {
+    right: 10px;
+    width: 170px;
+  }
+}
